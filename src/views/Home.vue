@@ -16,13 +16,6 @@ import ViewTitle from "@/components/ViewTitle";
 
 import { menus } from "@/router/index.js";
 </script>
-<style scoped>
-.menu-container {
-    display: flex;
-    flex-direction: column;
+<style lang="scss" scoped>
 
-    width: 100%;
-
-    padding: 10px 15px;
-}
 </style>

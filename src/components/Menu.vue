@@ -2,7 +2,6 @@
     <div class="menu-item" @click="move">
         <div class="prev-icon">►</div>
         <div class="title">{{ props.title }}</div>
-        <div class="next-icon">></div>
     </div>
 </template>
 
@@ -22,7 +21,7 @@ const move = () => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .menu-item {
     display: flex;
     align-items: center;
@@ -32,9 +31,6 @@ const move = () => {
 
     .prev-icon {
         flex-basis: 30px;
-    }
-    .next-icon {
-        margin-left: auto;
     }
 }
 

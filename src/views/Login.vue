@@ -47,7 +47,7 @@ const login = () => {
     </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
     display: flex;
     justify-content: center;

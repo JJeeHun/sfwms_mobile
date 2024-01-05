@@ -14,7 +14,9 @@
                     {{ user.warehouse }}
                 </div>
             </div>
+
             <div class="exit" @click="logout" v-if="props.isLogout">⍈</div>
+            <div class="go-home" @click="goHome" v-else>←</div>
         </div>
     </div>
 </template>
@@ -36,8 +38,11 @@ const logout = () => {
 
     if (isYes) router.push("/");
 };
+const goHome = () => {
+    router.custom.HOME();
+}
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .view-title {
     display: flex;
     justify-content: space-between;
