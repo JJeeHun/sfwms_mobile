@@ -7,7 +7,7 @@ const userIdRef = ref("");
 const userPasswordRef = ref("");
 
 const login = () => {
-    store.dispatch("login", {
+    store.dispatch("user/login", {
         id: userIdRef.value,
         password: userPasswordRef.value,
     });

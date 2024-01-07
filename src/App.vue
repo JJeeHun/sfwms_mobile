@@ -1,3 +1,6 @@
+<script>
+export default {};
+</script>
 <template>
     <div id="container">
         <div class="box">
@@ -6,7 +9,8 @@
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import "./index";
 #container {
     display: flex;
     justify-content: center;

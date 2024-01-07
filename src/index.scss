@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input:not([type="checkbox"]),
+select {
+    width: 100%;
+    padding: 10px 10px;
+}
+
+input,
+select {
+    height: 100%;
+}
+
+select {
+    background-position: 20px;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.title1 {
+    font-weight: 500;
+}
+
+.sub-text {
+    color: lightgray;
+    font-size: 0.7rem;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    padding: 10px 15px;
+}
+
+.label {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 0 10px;
+    flex-shrink: 0;
+}
+
+.requried {
+    .label {
+        color: red;
+    }
+    input {
+        border: 1px solid red;
+        background: #ffffff;
+        border-radius: 2px;
+    }
+    input:focus {
+        outline: 2px solid red;
+    }
+}
+
+.input_box {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    height: 50px;
+    overflow: hidden;
+
+    font-size: 0.7rem;
+
+    padding: 5px 3px;
+}

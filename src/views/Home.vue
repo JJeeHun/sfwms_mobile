@@ -1,3 +1,9 @@
+<script setup>
+import Menu from "@/components/Menu";
+import ViewTitle from "@/components/ViewTitle";
+import { menus } from "@/router/path.js";
+</script>
+
 <template>
     <div class="menu-container">
         <ViewTitle title="logipick WMS" :isLogout="true" />
@@ -10,12 +16,5 @@
         />
     </div>
 </template>
-<script setup>
-import Menu from "@/components/Menu";
-import ViewTitle from "@/components/ViewTitle";
 
-import { menus } from "@/router/index.js";
-</script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

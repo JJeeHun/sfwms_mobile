@@ -1,59 +1,34 @@
 <script setup>
-    import {defineProps ,defineModel} from 'vue';
+import { defineProps, defineModel } from "vue";
 
-    const props = defineProps({
-        value: String,
-        text: String,
-        width: String,
-        required: Boolean,
-    });
+const props = defineProps({
+    id: String,
+    value: String,
+    text: String,
+    width: String,
+    placeholder: String,
+    required: Boolean,
+});
 
-    const modelValue = defineModel();
-    const width = props.width || `100px`;
-    
-    const classList = ['edit',props.required ? 'requried' : ''];
+const _value = defineModel();
+const width = props.width || `100px`;
+
+const classList = ["input_box", props.required ? "requried" : ""];
 </script>
 
 <template>
     <div :class="classList.join(' ')">
-        <span class="label" :style="{flexBasis:width}">{{ props.text }}</span>
-        <input type="text" v-model="modelValue" :required="props.required">
+        <span class="label" :style="{ flexBasis: width }">{{
+            props.text
+        }}</span>
+        <input
+            type="text"
+            :id="props.id"
+            v-model="_value"
+            :required="props.required"
+            :placeholder="props.placeholder"
+        />
     </div>
 </template>
 
-<style lang="scss" scoped>
-    .edit {
-        display: flex;
-        align-items: center;
-
-        height: 50px;
-        overflow: hidden;
-
-        font-size: 0.7rem;
-
-        padding: 5px 3px;
-
-        .label {
-            display: flex;
-            justify-content: right;
-            align-items: center;
-            padding: 0 10px;
-            height: 100%;
-            flex-shrink: 0;
-        }
-    }
-    
-    .requried {
-        .label {
-            color: red;            
-        }
-        input {
-            border: 1px solid red;
-            background: #ffffff;
-            border-radius: 2px;
-        }
-        input:focus {
-            outline: 2px solid red;            
-        }
-    }
-</style>
+<style lang="scss" scoped></style>

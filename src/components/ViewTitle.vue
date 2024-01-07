@@ -1,7 +1,32 @@
+<script setup>
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { defineProps, computed } from "vue";
+
+const _linkTo = useRouter().link;
+const _store = useStore();
+const props = defineProps({
+    title: String,
+    isLogout: Boolean,
+});
+const user = _store.getters["user/getUser"];
+
+const logout = () => {
+    const isYes = window.confirm("종료하시겠습니까?");
+
+    if (isYes) _linkTo.LOGIN();
+};
+const goHome = computed(() => {
+    return _linkTo.HOME;
+});
+</script>
+
 <template>
     <div class="view-title">
         <div class="view-title-left">
-            <div class="view-title-title title">{{ props.title }}</div>
+            <div class="view-title-title title">
+                {{ props.title }}
+            </div>
             <div class="view-title-user sub-text">[{{ user.username }}]</div>
         </div>
 
@@ -16,32 +41,11 @@
             </div>
 
             <div class="exit" @click="logout" v-if="props.isLogout">⍈</div>
-            <div class="go-home" @click="goHome" v-else>←</div>
+            <div class="go-home" @click="goHome(1, 2)" v-else>←</div>
         </div>
     </div>
 </template>
-<script setup>
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import { defineProps } from "vue";
 
-const router = useRouter();
-const props = defineProps({
-    title: String,
-    isLogout: Boolean,
-});
-
-const user = useStore().state.user;
-
-const logout = () => {
-    const isYes = window.confirm("종료하시겠습니까?");
-
-    if (isYes) router.push("/");
-};
-const goHome = () => {
-    router.custom.HOME();
-}
-</script>
 <style lang="scss" scoped>
 .view-title {
     display: flex;
