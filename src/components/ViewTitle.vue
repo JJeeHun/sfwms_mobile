@@ -59,6 +59,7 @@ const goHome = computed(() => {
         display: flex;
         align-items: center;
         flex-direction: column;
+        gap: 3px;
     }
     .view-title-right {
         display: flex;

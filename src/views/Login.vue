@@ -1,16 +1,25 @@
 <script setup>
-import { ref } from "vue";
+import { reactive } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-const userIdRef = ref("");
-const userPasswordRef = ref("");
+const initUser = {
+    id: 'admin',
+    password: '',
+}
+const user = reactive({...initUser});
+const resetUser = () => Object.entries(initUser).forEach(([key,value]) => user[key] = value);
 
-const login = () => {
-    store.dispatch("user/login", {
-        id: userIdRef.value,
-        password: userPasswordRef.value,
-    });
+const login = () => {   
+    // 로그인 성공 로직
+    if(user.id === 'admin') {
+        store.dispatch("user/login", {
+            id: user.id,
+            password: user.password,
+        });
+    }else { // 실패 로직
+        resetUser();
+    }
 };
 </script>
 
@@ -25,14 +34,14 @@ const login = () => {
         </div>
 
         <div class="input-icon">
-            <input type="text" placeholder="ID" v-model="userId" />
+            <input type="text" placeholder="ID" v-model="user.id" />
             <span>
                 <i class="fa-solid fa-user-times"></i>
             </span>
         </div>
 
-        <div class="input-icon">
-            <input type="password" placeholder="PASSWORD" v-model="password" />
+        <div class="input-icon" @change="login">
+            <input type="password" placeholder="PASSWORD" v-model="user.password" />
             <span>
                 <i class="fa-solid fa-user-times"></i>
             </span>

@@ -10,6 +10,7 @@ export default {};
 </template>
 
 <style lang="scss">
+@import "./reset.css";
 @import "./index";
 #container {
     display: flex;

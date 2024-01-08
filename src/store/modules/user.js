@@ -2,7 +2,12 @@ import router from "@/router/index.js";
 
 export default {
     state: {
-        user: {},
+        user: {
+            id: 1,
+            username: "admin",
+            client: "ABLE C&C US",
+            warehouse: "Jersey A",
+        },
     },
     mutations: {
         setUser(state, payload) {
