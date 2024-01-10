@@ -10,7 +10,7 @@ import { menus } from "@/router/path.js";
         <Menu
             v-for="menu in menus"
             :key="menu.id"
-            :title="menu.title"
+            :title="menu.name"
             :url="menu.path"
             class="title"
         />

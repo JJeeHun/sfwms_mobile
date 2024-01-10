@@ -6,54 +6,19 @@ import PalletCheck from "@/views/PalletCheck";
 import OrderCheck from "@/views/OrderCheck";
 import StockCheck from "@/views/StockCheck";
 import PalletPallet from "@/views/PalletPallet";
-import FullPallteReturn from "@/views/FullPallteReturn";
+import FullPalletReturn from "@/views/FullPalletReturn";
 
 export default [
-    { path: "/", name: "Login", component: Login },
-    { path: "/home", name: "Home", component: Home },
+    { path: "/",     name: "Login", component: Login },
+    { path: "/home", name: "Home",  component: Home },
 ];
 
 export const menus = [
-    {
-        id: 1,
-        title: "Move location (Pallet)",
-        path: "/move/location",
-        component: MoveLocation,
-    },
-    {
-        id: 2,
-        title: "Order scan (Pallet replace)",
-        path: "/order/scan",
-        component: OrderScan,
-    },
-    {
-        id: 3,
-        title: "Pallet check",
-        path: "/pallet/check",
-        component: PalletCheck,
-    },
-    {
-        id: 4,
-        title: "Order check",
-        path: "/order/check",
-        component: OrderCheck,
-    },
-    {
-        id: 5,
-        title: "Stock check",
-        path: "/stock/check",
-        component: StockCheck,
-    },
-    {
-        id: 6,
-        title: "Pallet + Pallet",
-        path: "/pallet/pallet",
-        component: PalletPallet,
-    },
-    {
-        id: 7,
-        title: "Full pallte return",
-        path: "/pallet/return",
-        component: FullPallteReturn,
-    },
+    { id: 1, path: "/move/location", component: MoveLocation,       name: "Move location (Pallet)",       },
+    { id: 2, path: "/order/scan",    component: OrderScan,          name: "Order scan (Pallet replace)",  },
+    { id: 3, path: "/pallet/check",  component: PalletCheck,        name: "Pallet check",                 },
+    { id: 4, path: "/order/check",   component: OrderCheck,         name: "Order check",                  },
+    { id: 5, path: "/stock/check",   component: StockCheck,         name: "Stock check",                  },
+    { id: 6, path: "/pallet/pallet", component: PalletPallet,       name: "Pallet + Pallet",              },
+    { id: 7, path: "/pallet/return", component: FullPalletReturn,   name: "Full pallte return",           },
 ];
