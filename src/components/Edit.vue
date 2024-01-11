@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps, defineModel } from "vue";
-import onRequiredValidationEvent from '@/components/message/required_message.js'
+import onRequiredValidationEvent from "@/components/message/required_message.js";
 
 const props = defineProps({
     id: String,
@@ -14,16 +14,17 @@ const props = defineProps({
 
 const _value = defineModel();
 const width = props.width || `100px`;
-
-const classList = ["input_box", props.required ? "requried" : ""];
-
+const requiredClass = props.required ? "requried" : "";
 </script>
 
 <template>
-    <div :class="classList.join(' ')">
-        <span class="label" :style="{ flexBasis: width }" v-if="width !== '0px'">{{
-            props.text
-        }}</span>
+    <div :class="`input-box component-box ${requiredClass}`">
+        <span
+            class="label"
+            :style="{ flexBasis: width }"
+            v-if="width !== '0px'"
+            >{{ props.text }}</span
+        >
         <input
             type="text"
             :id="props.id"

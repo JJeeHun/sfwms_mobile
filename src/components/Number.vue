@@ -13,22 +13,24 @@ const props = defineProps({
 });
 
 const _value = defineModel();
-if(isNaN(_value.value)) throw Error('Component <Number /> Error, Value Is Not a Number');
+if (isNaN(_value.value))
+    throw Error("Component <Number /> Error, Value Is Not a Number");
 
 const input_box = ref(null);
 const input_text = ref(_value.value);
 const isFocus = ref(false);
 
 const width = props.width || `100px`;
-const classList = ["input_box", props.required ? "requried" : ""];
+const requiredClass = props.required ? "requried" : "";
 
 const priceCommaRegExpr = new RegExp(/\B(?=(\d{3})+(?!\d))/, "g");
-const changePriceNumber = () => 
-    input_text.value = _value.value ? _value.value.toString()?.replace(priceCommaRegExpr, ",") : 0;
-
+const changePriceNumber = () =>
+    (input_text.value = _value.value
+        ? _value.value.toString()?.replace(priceCommaRegExpr, ",")
+        : 0);
 
 const activeNumberInput = () => {
-    if(props.readonly) return;
+    if (props.readonly) return;
 
     const targetNode = input_box.value;
     const focusInputText = document.activeElement;
@@ -40,12 +42,13 @@ const activeNumberInput = () => {
 };
 
 const onRequiredValidation = () => {
-    return 'dddd'
-}
+    isFocus.value = true;
+    return true;
+};
 </script>
 
 <template>
-    <div :class="classList.join(' ')" ref="input_box">
+    <div :class="`input-box component-box ${requiredClass}`" ref="input_box">
         <span class="label" :style="{ flexBasis: width }">{{
             props.text
         }}</span>
@@ -61,7 +64,13 @@ const onRequiredValidation = () => {
             @invalid="onRequiredValidation"
             :readonly="readonly"
         />
-        <input type="text" :value="changePriceNumber()" v-show="!isFocus" :readonly="readonly" @focus="activeNumberInput"/>
+        <input
+            type="text"
+            :value="changePriceNumber()"
+            v-show="!isFocus"
+            :readonly="readonly"
+            @focus="activeNumberInput"
+        />
     </div>
 </template>
 

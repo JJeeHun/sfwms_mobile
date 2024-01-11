@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineModel, ref } from "vue";
+import { defineProps, defineModel } from "vue";
 
 const props = defineProps({
     id: String,
@@ -7,6 +7,8 @@ const props = defineProps({
     text: String,
 
     items: Array,
+    textColumn: String,
+    valueColumn: String,
 
     width: String,
 
@@ -16,20 +18,32 @@ const props = defineProps({
 });
 
 const _value = defineModel();
-const items = defineModel('items');
+const items = defineModel("items");
 const width = props.width || `100px`;
-const classList = ["input_box", props.required ? "requried" : ""];
-
-const input_box = ref(null);
+const requiredClass = props.required ? "requried" : "";
+const textProp = props.textColumn ? props.textColumn : "text";
+const valueProp = props.valueColumn ? props.valueColumn : "value";
 </script>
 
 <template>
-    <div :class="classList.join(' ')" ref="input_box">
+    <div :class="`input-box component-box ${requiredClass}`">
         <span class="label" :style="{ flexBasis: width }">{{
             props.text
         }}</span>
-        <select :id="props.id" :required="props.required" v-model="_value" :disabled="readonly">
-            <option v-for="( item,i ) in items" :key="item.id" :value="item.id" :checked="i === 0">{{ item.text }}</option>
+        <select
+            :id="props.id"
+            :required="props.required"
+            v-model="_value"
+            :disabled="readonly"
+        >
+            <option
+                v-for="(item, i) in items"
+                :key="item[valueProp]"
+                :value="item[valueProp]"
+                :checked="i === 0"
+            >
+                {{ item[textProp] }}
+            </option>
         </select>
     </div>
 </template>

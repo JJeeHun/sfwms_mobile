@@ -14,7 +14,8 @@ html {
 }
 
 input:not([type="checkbox"]),
-select {
+select,
+textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid var(--dark-gray);
@@ -78,24 +79,61 @@ input:read-only {
     .label {
         color: red;
     }
-    input {
+    input,
+    select,
+    textarea {
         border: 1px solid red;
         background: #ffffff;
         border-radius: var(--defualt-borer-radius);
     }
-    input:focus {
+    input:focus,
+    select:focus,
+    textarea:focus {
         outline: 1px solid red;
     }
 }
 
-.input_box {
+.component-box {
     display: flex;
     align-items: center;
 
     position: relative;
 
-    height: 50px;
     overflow: hidden;
 
     padding: 5px 3px;
+}
+
+.input-box {
+    height: 50px;
+}
+
+.textarea-box {
+    align-items: flex-start;
+
+    .label {
+        margin-top: 10px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+}
+
+.error-wrapper {
+    width: 100%;
+}
+
+button {
+    border: none;
+    border-radius: var(--defualt-borer-radius);
+}
+
+.primary {
+    background-color: #0280f7;
+    color: var(--white);
+}
+.reset {
+    background-color: #6c757d;
+    color: var(--white);
 }
