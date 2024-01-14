@@ -1,5 +1,5 @@
 :root {
-    --light-gray: #dddddd;
+    --light-gray: #bdbdbd;
     --white: #ffffff;
     --dark-gray: rgb(118, 118, 118);
     --defualt-borer-radius: 5px;
@@ -36,10 +36,13 @@ select:disabled {
 }
 
 input:read-only {
-    border: 1px solid var(--dark-gray);
+    border: 1px solid var(--light-gray);
     outline: none;
-    color: var(--dark-gray);
+    color: var(--light-gray);
     border-radius: var(--defualt-borer-radius);
+}
+[readonly] {
+  color: var(--light-gray);
 }
 
 .title {
@@ -61,6 +64,7 @@ input:read-only {
     flex-direction: column;
 
     width: 100%;
+    height: 100%;
 
     padding: 10px 15px;
 }
@@ -136,4 +140,9 @@ button {
 .reset {
     background-color: #6c757d;
     color: var(--white);
+}
+
+.division {
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 5px;
 }

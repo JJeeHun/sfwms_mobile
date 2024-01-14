@@ -51,7 +51,7 @@ const goHome = computed(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid var(--light-gray);
     padding: 10px 0;
 
     .view-title-left,

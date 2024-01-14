@@ -23,6 +23,7 @@ const requiredClass = props.required ? "requried" : "";
             class="label"
             :style="{ flexBasis: width }"
             v-if="width !== '0px'"
+            :readonly="readonly"
             >{{ props.text }}</span
         >
         <input
