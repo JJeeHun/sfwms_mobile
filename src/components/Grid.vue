@@ -27,14 +27,14 @@ const getTypeCheckedText = (type,value) => {
   <div class="grid" :style="`flex-basis: ${props.height}`">
     <div class="grid-header">
       <div class="row">
-        <div class="col title" v-for="title in props.titles" :key="title.column">{{title.text}}</div>
+        <div class="col title" v-for="title in props.titles" :key="title.column" :style="`${title.width ? 'flex-basis:' + title.width : ''}`">{{title.text}}</div>
       </div>
     </div>
 
     <div class="grid-data">
       <div class="no-data" v-if="isDataEmpty">{{`There is no data viewed.`}}</div>
       <div class="row" v-for="(item,i) in props.data" :key="i" v-else>
-        <div :class="`col `+title.type" v-for="title in props.titles" :key="title.column" >{{getTypeCheckedText(title.type ,item[title.column])}}</div>
+        <div :class="`col `+title.type" v-for="title in props.titles" :key="title.column" :style="`${title.width ? 'flex-basis:' + title.width : ''}`">{{getTypeCheckedText(title.type ,item[title.column])}}</div>
       </div>
     </div>
 
@@ -53,11 +53,18 @@ const getTypeCheckedText = (type,value) => {
     .grid-data {
       overflow: auto;
       height: 100%;
+      font-size: 0.9rem;
     }
 
     .row {
       display: flex;
       height: 25px;
+
+      .title {
+        font-size: 1.05rem;
+        background-color: #0280f7;
+        color: var(--white);
+      }
 
       .col {
         flex-basis: 100px;
@@ -67,6 +74,7 @@ const getTypeCheckedText = (type,value) => {
         border-right: 1px solid var(--light-gray);
         border-bottom: 1px solid var(--light-gray);
       }
+
       .string {
         justify-content: flex-start;
         padding-left: 5px;
@@ -79,13 +87,12 @@ const getTypeCheckedText = (type,value) => {
       .col:last-child {
         border-right: none;
       }
-
     }
   }
 
   :first-child {
     .col {
-      padding-top: 4px;
+      //padding-top: 4px;
     }
   }
 
@@ -96,8 +103,5 @@ const getTypeCheckedText = (type,value) => {
     height: 100%;
   }
 
-  .title {
-    background-color: #0280f7;
-    color: var(--white);
-  }
+
 </style>

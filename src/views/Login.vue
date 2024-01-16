@@ -10,7 +10,7 @@ const initUser = {
 const user = reactive({...initUser});
 const resetUser = () => Object.entries(initUser).forEach(([key,value]) => user[key] = value);
 
-const login = () => {   
+const login = () => {
     // 로그인 성공 로직
     if(user.id === 'admin') {
         store.dispatch("user/login", {
@@ -94,6 +94,8 @@ const login = () => {
     }
 
     .remember-me {
+        display: flex;
+        align-items: center;
         input {
             width: 15px;
         }

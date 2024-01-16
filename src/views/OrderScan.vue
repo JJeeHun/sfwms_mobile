@@ -6,9 +6,10 @@
 
     const titles = [
         {column: 'item'     ,text: 'Item'      ,type: 'code'},
-        {column: 'itemName' ,text: 'Item Name' ,type: 'string'},
+        {column: 'itemName' ,text: 'Item Name' ,type: 'string' ,width: '150px'},
         {column: 'qty'      ,text: 'Qty'       ,type: 'number'},
         {column: 'scan'     ,text: 'Scan'      ,type: 'number'},
+        {column: 'stat'     ,text: 'Status'    ,type: 'code'},
     ];
 
     const shipTo = ref('');
@@ -17,7 +18,7 @@
     setTimeout(() => {
       shipTo.value = 'test';
       data = [
-        {item:'1' ,itemName:'d'}
+        {item:'1' ,itemName:'d' ,stat: 'Complete'}
       ];
     },1000);
 </script>
